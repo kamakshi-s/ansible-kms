@@ -1,0 +1,14 @@
+---
+-host: dev
+ tasks:
+  - name: Copy SCCM Installtion file to the target machine.
+    copy: 
+      src: \\orion\Shared\Software\SCCM 2012\Latest version\Installclient.bat
+      dest: c:\windows
+  - name: Execute InstallClient batch script to the target machine.
+    win-shell: c:\windows\Installclient.bat
+    args:
+      executable:cmd
+ # - name: Check PSM Authentication
+ #   win
+
